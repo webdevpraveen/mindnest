@@ -1,882 +1,962 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MindNest — Student Wellness Community</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MindNest — Student Wellness Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="app">
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div class="sidebar-logo">
-      <div class="logo-mark">
-        <div class="logo-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-          </svg>
-        </div>
-        <div>
-          <div class="logo-text">MindNest</div>
-          <div class="logo-tagline">Student Wellness Community</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="user-card">
-      <div class="avatar">P</div>
-      <div class="user-info">
-        <div class="user-name">Priya Sharma</div>
-        <div class="user-meta">B.Tech CSE · 2nd Year</div>
-      </div>
-      <div class="streak-badge">🔥 7</div>
-    </div>
-
-    <nav class="nav">
-      <div class="nav-section-label">Explore</div>
-      <div class="nav-item active" onclick="goTo('home')">
-        <span class="nav-icon">🏡</span> Community Feed
-      </div>
-      <div class="nav-item" onclick="goTo('vent')">
-        <span class="nav-icon">💬</span> Vent Room
-        <span class="nav-badge">3</span>
-      </div>
-      <div class="nav-item" onclick="goTo('breathe')">
-        <span class="nav-icon">🌿</span> Breathe
-      </div>
-      <div class="nav-item" onclick="goTo('journal')">
-        <span class="nav-icon">📓</span> My Journal
-      </div>
-
-      <div class="nav-section-label" style="margin-top:8px">Connect</div>
-      <div class="nav-item" onclick="goTo('chat')">
-        <span class="nav-icon">✉️</span> Messages
-        <span class="nav-badge">2</span>
-      </div>
-      <div class="nav-item" onclick="goTo('rewards')">
-        <span class="nav-icon">🏆</span> Rewards
-      </div>
-    </nav>
-
-    <div class="points-card">
-      <div class="points-label">YOUR WELLNESS POINTS</div>
-      <div class="points-value">680</div>
-      <div class="points-bar-bg">
-        <div class="points-bar-fill"></div>
-      </div>
-      <div class="points-sub">320 pts to next reward tier ✨</div>
-    </div>
-  </aside>
-
-  <!-- MAIN -->
-  <div class="main">
-
-    <!-- ====== HOME PAGE ====== -->
-    <div id="page-home" class="page active">
-      <div class="topbar">
-        <div class="topbar-title">Community Feed</div>
-        <div class="topbar-actions">
-          <button class="btn btn-ghost" onclick="openModal('postModal')">+ Share</button>
-          <button class="notif-btn" onclick="showToast('You have 3 new notifications', '🔔')">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-            <div class="notif-dot"></div>
-          </button>
-        </div>
-      </div>
-
-      <div class="feed-layout">
-        <!-- Feed -->
-        <div>
-          <!-- Mood check-in -->
-          <div class="mood-checkin">
-            <div class="mood-checkin-title">How are you feeling today, Priya? 🌤️</div>
-            <div class="mood-checkin-sub">Check in daily to earn 10 wellness points and maintain your streak.</div>
-            <div class="mood-emojis">
-              <button class="mood-btn" onclick="selectMood(this)">
-                😄 <span class="label">Great</span>
-              </button>
-              <button class="mood-btn" onclick="selectMood(this)">
-                🙂 <span class="label">Good</span>
-              </button>
-              <button class="mood-btn" onclick="selectMood(this)">
-                😐 <span class="label">Okay</span>
-              </button>
-              <button class="mood-btn" onclick="selectMood(this)">
-                😟 <span class="label">Low</span>
-              </button>
-              <button class="mood-btn" onclick="selectMood(this)">
-                😔 <span class="label">Rough</span>
-              </button>
-            </div>
+  <div class="app">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-mark">
+          <div class="logo-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
           </div>
-
-          <!-- Composer -->
-          <div class="composer">
-            <div class="composer-top">
-              <div class="avatar" style="width:36px;height:36px;font-size:14px;">P</div>
-              <textarea class="composer-input" placeholder="Share something with your community — a win, a worry, a tip..." rows="2"></textarea>
-            </div>
-            <div class="composer-bottom">
-              <div class="composer-tags">
-                <span class="tag-pill active" onclick="toggleTag(this)">#academics</span>
-                <span class="tag-pill" onclick="toggleTag(this)">#motivation</span>
-                <span class="tag-pill" onclick="toggleTag(this)">#selfcare</span>
-                <span class="tag-pill" onclick="toggleTag(this)">#rant</span>
-              </div>
-              <div style="display:flex;gap:12px;align-items:center">
-                <div class="anon-toggle" onclick="this.querySelector('.toggle').classList.toggle('on')">
-                  <div class="toggle"></div>
-                  <span>Anonymous</span>
-                </div>
-                <button class="btn btn-primary" onclick="submitPost()">Post</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Posts -->
-          <div id="feedPosts">
-
-            <div class="post-card">
-              <div class="post-header">
-                <div class="post-avatar" style="background:linear-gradient(135deg,#7BAFD4,#5A8BBF)">R</div>
-                <div class="post-user-info">
-                  <div class="post-username">Rohan M.</div>
-                  <div class="post-meta">B.Com 3rd Year · 2h ago</div>
-                </div>
-                <span class="post-badge badge-top">🏅 Top Helper</span>
-              </div>
-              <div class="post-content">
-                Just finished my 4th consecutive all-nighter for exams and I genuinely don't know how much longer I can keep this up. The pressure of maintaining a 9+ CGPA while also dealing with family expectations feels absolutely crushing sometimes. Anyone else feel like they're running on fumes? 😔
-              </div>
-              <div class="post-tags">
-                <span class="post-tag">#academics</span>
-                <span class="post-tag">#burnout</span>
-                <span class="post-tag">#cgpa-pressure</span>
-              </div>
-              <div class="post-actions">
-                <button class="action-btn" onclick="toggleLike(this)">❤️ <span>24</span></button>
-                <button class="action-btn validated" onclick="toggleValidate(this)">✅ I feel this <span>18</span></button>
-                <button class="action-btn" onclick="showToast('Comment feature coming soon!', '💬')">💬 Comment <span>7</span></button>
-                <button class="action-btn" onclick="showToast('+5 points for sharing support!', '⭐', 'points')">🤝 Support</button>
-              </div>
-            </div>
-
-            <div class="post-card">
-              <div class="post-header">
-                <div class="post-avatar" style="background:linear-gradient(135deg,#D46B6B,#C0504D)">👤</div>
-                <div class="post-user-info">
-                  <div class="post-username">Anonymous Owl</div>
-                  <div class="post-meta">Engineering · 1h ago</div>
-                </div>
-                <span class="post-badge badge-anon">🕶️ Anonymous</span>
-              </div>
-              <div class="post-content">
-                PSA for everyone comparing themselves to topper students on the class group: their highlight reel is not your behind-the-scenes. You don't see their breakdowns at 3am. Stop comparing. Focus on YOUR journey. 💪
-              </div>
-              <div class="post-tags">
-                <span class="post-tag">#motivation</span>
-                <span class="post-tag">#comparison-trap</span>
-              </div>
-              <div class="post-actions">
-                <button class="action-btn liked" onclick="toggleLike(this)">❤️ <span>67</span></button>
-                <button class="action-btn" onclick="toggleValidate(this)">✅ I feel this <span>42</span></button>
-                <button class="action-btn" onclick="showToast('Comment feature coming soon!', '💬')">💬 Comment <span>15</span></button>
-                <button class="action-btn" onclick="showToast('+5 points for sharing support!', '⭐', 'points')">🤝 Support</button>
-              </div>
-            </div>
-
-            <div class="post-card">
-              <div class="post-header">
-                <div class="post-avatar" style="background:linear-gradient(135deg,#C9A84C,#E8A020)">S</div>
-                <div class="post-user-info">
-                  <div class="post-username">Sneha K.</div>
-                  <div class="post-meta">MBA 1st Year · 30min ago</div>
-                </div>
-                <span class="post-badge badge-verified">✅ Verified</span>
-              </div>
-              <div class="post-content">
-                💡 <strong>Tip that saved my life during finals:</strong> The Pomodoro technique + a <em>no-phone box</em>. 25 min deep work, 5 min pure break (no scrolling). After 4 cycles, take 20 min. My anxiety dropped 60% in just 2 weeks. Sharing is caring! 🌿
-              </div>
-              <div class="post-tags">
-                <span class="post-tag">#tips</span>
-                <span class="post-tag">#selfcare</span>
-                <span class="post-tag">#productivity</span>
-              </div>
-              <div class="post-actions">
-                <button class="action-btn" onclick="toggleLike(this)">❤️ <span>89</span></button>
-                <button class="action-btn" onclick="toggleValidate(this)">✅ I feel this <span>34</span></button>
-                <button class="action-btn" onclick="showToast('Comment feature coming soon!', '💬')">💬 Comment <span>22</span></button>
-                <button class="action-btn" onclick="showToast('+5 points for sharing support!', '⭐', 'points')">🤝 Support</button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Right sidebar -->
-        <div>
-          <!-- Stress heatmap -->
-          <div class="sidebar-widget">
-            <div class="widget-title">📊 Pressure Points This Week</div>
-            <div class="heatmap-grid">
-              <div class="heatmap-row">
-                <span class="heatmap-label">Exams</span>
-                <div class="heatmap-bar-bg"><div class="heatmap-fill heat-critical" style="width:85%"></div></div>
-                <span class="heatmap-pct">85%</span>
-              </div>
-              <div class="heatmap-row">
-                <span class="heatmap-label">Assignments</span>
-                <div class="heatmap-bar-bg"><div class="heatmap-fill heat-high" style="width:72%"></div></div>
-                <span class="heatmap-pct">72%</span>
-              </div>
-              <div class="heatmap-row">
-                <span class="heatmap-label">Family</span>
-                <div class="heatmap-bar-bg"><div class="heatmap-fill heat-mid" style="width:55%"></div></div>
-                <span class="heatmap-pct">55%</span>
-              </div>
-              <div class="heatmap-row">
-                <span class="heatmap-label">Finances</span>
-                <div class="heatmap-bar-bg"><div class="heatmap-fill heat-mid" style="width:48%"></div></div>
-                <span class="heatmap-pct">48%</span>
-              </div>
-              <div class="heatmap-row">
-                <span class="heatmap-label">Social</span>
-                <div class="heatmap-bar-bg"><div class="heatmap-fill heat-low" style="width:30%"></div></div>
-                <span class="heatmap-pct">30%</span>
-              </div>
-            </div>
-            <div style="margin-top:10px;font-size:11px;color:var(--muted)">Based on community mood check-ins</div>
-          </div>
-
-          <!-- Leaderboard -->
-          <div class="sidebar-widget">
-            <div class="widget-title">🏆 Top Supporters This Week</div>
-            <div class="leaderboard-item">
-              <span class="lb-rank gold">🥇</span>
-              <div class="avatar" style="width:28px;height:28px;font-size:11px;background:linear-gradient(135deg,#C9A84C,#E8A020)">S</div>
-              <span class="lb-name">Sneha K.</span>
-              <span class="lb-pts">1,240 pts</span>
-            </div>
-            <div class="leaderboard-item">
-              <span class="lb-rank silver">🥈</span>
-              <div class="avatar" style="width:28px;height:28px;font-size:11px;background:linear-gradient(135deg,#7BAFD4,#5A8BBF)">R</div>
-              <span class="lb-name">Rohan M.</span>
-              <span class="lb-pts">980 pts</span>
-            </div>
-            <div class="leaderboard-item">
-              <span class="lb-rank bronze">🥉</span>
-              <div class="avatar" style="width:28px;height:28px;font-size:11px;background:linear-gradient(135deg,#D46B6B,#C0504D)">A</div>
-              <span class="lb-name">Ananya P.</span>
-              <span class="lb-pts">820 pts</span>
-            </div>
-            <div class="leaderboard-item">
-              <span class="lb-rank">4</span>
-              <div class="avatar" style="width:28px;height:28px;font-size:11px;background:linear-gradient(135deg,#7C9E87,#5A7D65)">P</div>
-              <span class="lb-name">Priya S. (You)</span>
-              <span class="lb-pts">680 pts</span>
-            </div>
-          </div>
-
-          <!-- Upcoming events -->
-          <div class="sidebar-widget">
-            <div class="widget-title">📅 Community Events</div>
-            <div class="event-item">
-              <div class="event-date">
-                <div class="event-day">14</div>
-                <div class="event-month">Apr</div>
-              </div>
-              <div class="event-info">
-                <div class="event-name">Group Study Session</div>
-                <div class="event-type">Virtual · 7 PM IST</div>
-              </div>
-            </div>
-            <div class="event-item">
-              <div class="event-date">
-                <div class="event-day">17</div>
-                <div class="event-month">Apr</div>
-              </div>
-              <div class="event-info">
-                <div class="event-name">Mindfulness Workshop</div>
-                <div class="event-type">Live · 5 PM IST</div>
-              </div>
-            </div>
-            <div class="event-item">
-              <div class="event-date">
-                <div class="event-day">20</div>
-                <div class="event-month">Apr</div>
-              </div>
-              <div class="event-info">
-                <div class="event-name">Exam Stress Debrief</div>
-                <div class="event-type">Open Circle · 8 PM IST</div>
-              </div>
-            </div>
+          <div>
+            <div class="logo-text">MindNest</div>
+            <div class="logo-tagline">Student Wellness Community</div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- ====== VENT ROOM PAGE ====== -->
-    <div id="page-vent" class="page">
-      <div class="topbar">
-        <div class="topbar-title">Vent Room</div>
-        <div class="topbar-actions">
-          <button class="btn btn-primary" onclick="openModal('ventModal')">+ Vent</button>
+      <div class="user-card">
+        <div class="avatar">P</div>
+        <div class="user-info">
+          <div class="user-name">Anamika Singh</div>
+          <div class="user-meta">BBA - BA · 1st Year</div>
         </div>
+        <div class="streak-badge">🔥 7</div>
       </div>
 
-      <div style="padding:24px 28px;max-width:760px">
-        <div class="vent-hero">
-          <div class="vent-hero-title">This is your safe space 🕊️</div>
-          <div class="vent-hero-sub">Let it out — no judgment here. Every vent gets at least one person who says "I feel you." Anonymous posting is always on in the Vent Room.</div>
-          <div class="vent-rules">
-            <div class="vent-rule">
-              <div class="vent-rule-icon">👁️</div>
-              Anonymous by default
-            </div>
-            <div class="vent-rule">
-              <div class="vent-rule-icon">❤️</div>
-              Validate, don't advise
-            </div>
-            <div class="vent-rule">
-              <div class="vent-rule-icon">🔒</div>
-              Stays in MindNest
-            </div>
-          </div>
+      <nav class="nav">
+        <div class="nav-section-label">Explore</div>
+        <div class="nav-item active" onclick="goTo('home')">
+          <span class="nav-icon">🏡</span> Community Feed
+        </div>
+        <div class="nav-item" onclick="goTo('vent')">
+          <span class="nav-icon">💬</span> Vent Room
+          <span class="nav-badge">3</span>
+        </div>
+        <div class="nav-item" onclick="goTo('breathe')">
+          <span class="nav-icon">🌿</span> Breathe
+        </div>
+        <div class="nav-item" onclick="goTo('journal')">
+          <span class="nav-icon">📓</span> My Journal
         </div>
 
-        <!-- Vent cards -->
-        <div class="vent-card severity-3">
-          <div class="post-header">
-            <div class="post-avatar" style="background:#D46B6B;font-size:13px">🌑</div>
-            <div class="post-user-info">
-              <div class="post-username">Anonymous — "Tired Student"</div>
-              <div class="post-meta">45 min ago</div>
-            </div>
-          </div>
-          <div class="post-content">
-            I don't think I can handle another semester like this. Three subjects with 80% attendance rules, two internals, and my parents calling every day asking about my rank. I feel invisible in my own life. Is this normal? Does it get better?
-          </div>
-          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-            <button class="validate-btn" onclick="validateVent(this)">🫂 I feel you too · <span>14</span></button>
-            <button class="validate-btn" onclick="showToast('DM sent! You earned 15 points 💛', '✉️', 'points')">✉️ Send Comfort DM</button>
-            <button class="validate-btn" onclick="showToast('Thanks for reporting. Our counselor will respond soon.', '✅')">🆘 Flag for Counselor</button>
-          </div>
+        <div class="nav-section-label" style="margin-top:8px">Connect</div>
+        <div class="nav-item" onclick="goTo('chat')">
+          <span class="nav-icon">✉️</span> Messages
+          <span class="nav-badge">2</span>
         </div>
+        <div class="nav-item" onclick="goTo('rewards')">
+          <span class="nav-icon">🏆</span> Rewards
+        </div>
+      </nav>
 
-        <div class="vent-card severity-2">
-          <div class="post-header">
-            <div class="post-avatar" style="background:#C9A84C;font-size:13px">🌙</div>
-            <div class="post-user-info">
-              <div class="post-username">Anonymous — "Midnight Overthinker"</div>
-              <div class="post-meta">2h ago</div>
-            </div>
-          </div>
-          <div class="post-content">
-            My best friend stopped talking to me after I got better marks than her. I don't know if I should feel guilty or sad. I didn't even compete with her. Comparison ruins everything. 😶
-          </div>
-          <div style="display:flex;gap:10px;align-items:center">
-            <button class="validate-btn done" onclick="validateVent(this)">🫂 I feel you too · <span>29</span></button>
-            <button class="validate-btn" onclick="showToast('DM sent! You earned 15 points 💛', '✉️', 'points')">✉️ Send Comfort DM</button>
-          </div>
+      <div class="points-card">
+        <div class="points-label">YOUR WELLNESS POINTS</div>
+        <div class="points-value">680</div>
+        <div class="points-bar-bg">
+          <div class="points-bar-fill"></div>
         </div>
-
-        <div class="vent-card severity-1">
-          <div class="post-header">
-            <div class="post-avatar" style="background:#7C9E87;font-size:13px">🌱</div>
-            <div class="post-user-info">
-              <div class="post-username">Anonymous — "Trying Hard"</div>
-              <div class="post-meta">4h ago</div>
-            </div>
-          </div>
-          <div class="post-content">
-            Update: I posted here last week about my anxiety. So many people validated me and one person sent me a comfort DM that literally changed my week. I'm doing slightly better. Thank you MindNest community. 🌿
-          </div>
-          <div style="display:flex;gap:10px;align-items:center">
-            <button class="validate-btn" onclick="validateVent(this)">🫂 I feel you too · <span>47</span></button>
-            <button class="validate-btn" onclick="showToast('DM sent! You earned 15 points 💛', '✉️', 'points')">✉️ Send Comfort DM</button>
-          </div>
-        </div>
+        <div class="points-sub">320 pts to next reward tier ✨</div>
       </div>
-    </div>
+    </aside>
 
-    <!-- ====== BREATHE PAGE ====== -->
-    <div id="page-breathe" class="page">
-      <div class="topbar">
-        <div class="topbar-title">Breathe & Reset</div>
-      </div>
+    <!-- MAIN -->
+    <div class="main">
 
-      <div class="breathe-center">
-        <div class="breathe-title">Take a moment for yourself</div>
-        <div class="breathe-sub">Guided breathing exercises to calm exam anxiety and stress in minutes</div>
-
-        <div class="breathe-circle-container">
-          <div class="breathe-ring"></div>
-          <div class="breathe-ring-fill" id="breatheRing"></div>
-          <div class="breathe-inner" id="breatheInner">
-            <div class="breathe-instruction" id="breatheText">Ready</div>
-            <div class="breathe-count" id="breatheCount">—</div>
-          </div>
-        </div>
-
-        <div class="breathe-controls">
-          <button class="btn btn-ghost" id="breatheBtn" onclick="startBreathe()">▶ Start</button>
-          <button class="btn btn-ghost" onclick="stopBreathe()">◼ Stop</button>
-        </div>
-
-        <div class="breathe-techniques">
-          <div class="technique-card active" onclick="selectTechnique(this,'4-7-8')">
-            <div class="technique-name">4-7-8</div>
-            <div class="technique-desc">Inhale 4s · Hold 7s · Exhale 8s</div>
-          </div>
-          <div class="technique-card" onclick="selectTechnique(this,'box')">
-            <div class="technique-name">Box Breathing</div>
-            <div class="technique-desc">4s · Hold 4s · 4s · Hold 4s</div>
-          </div>
-          <div class="technique-card" onclick="selectTechnique(this,'calm')">
-            <div class="technique-name">Quick Calm</div>
-            <div class="technique-desc">Inhale 3s · Exhale 6s</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ====== JOURNAL PAGE ====== -->
-    <div id="page-journal" class="page">
-      <div class="topbar">
-        <div class="topbar-title">My Journal</div>
-        <div class="topbar-actions">
-          <button class="btn btn-primary" onclick="saveEntry()">Save Entry</button>
-        </div>
-      </div>
-
-      <div class="journal-layout">
-        <div>
-          <div class="journal-editor">
-            <div class="journal-toolbar">
-              <button class="toolbar-btn" onclick="formatText('bold')"><strong>B</strong></button>
-              <button class="toolbar-btn" onclick="formatText('italic')"><em>I</em></button>
-              <button class="toolbar-btn" onclick="formatText('underline')"><u>U</u></button>
-              <div style="width:1px;background:var(--border);margin:0 4px"></div>
-              <button class="toolbar-btn">😊</button>
-              <button class="toolbar-btn">🔖</button>
-              <button class="toolbar-btn">🔒 Private</button>
-            </div>
-            <div class="journal-date-input">
-              <div class="journal-date-label">SUNDAY, APRIL 12, 2026</div>
-            </div>
-            <input class="journal-heading" type="text" placeholder="Entry title..." />
-            <textarea class="journal-textarea" id="journalText" placeholder="Start writing... This is your private space. No one can see this unless you choose to share. What's on your mind today?"></textarea>
-            <div class="journal-footer">
-              <div>
-                <span id="wordCount">0 words</span>
-                <span style="margin:0 8px">·</span>
-                <span>Private</span>
-              </div>
-              <div class="journal-mood-selector">
-                <button class="journal-mood-btn sel" onclick="selectJMood(this)">😄</button>
-                <button class="journal-mood-btn" onclick="selectJMood(this)">😐</button>
-                <button class="journal-mood-btn" onclick="selectJMood(this)">😔</button>
-                <button class="journal-mood-btn" onclick="selectJMood(this)">😤</button>
-                <button class="journal-mood-btn" onclick="selectJMood(this)">😰</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Past entries sidebar -->
-        <div>
-          <div class="section-title">Past Entries</div>
-          <div class="entry-item" onclick="loadEntry('apr11')">
-            <div class="entry-date">April 11, 2026</div>
-            <div class="entry-title">Rough day but I survived</div>
-            <div class="entry-preview">Didn't do well in the mock test but talked to Ananya and felt better after...</div>
-            <div class="entry-mood">😔</div>
-          </div>
-          <div class="entry-item" onclick="loadEntry('apr9')">
-            <div class="entry-date">April 9, 2026</div>
-            <div class="entry-title">Something clicked today</div>
-            <div class="entry-preview">Finally understood Dynamic Programming after 3 days. The feeling is indescribable...</div>
-            <div class="entry-mood">😄</div>
-          </div>
-          <div class="entry-item" onclick="loadEntry('apr7')">
-            <div class="entry-date">April 7, 2026</div>
-            <div class="entry-title">Why do I compare myself so much</div>
-            <div class="entry-preview">Saw Riya's internship offer on LinkedIn and felt that familiar pang again. Need to work on this...</div>
-            <div class="entry-mood">😟</div>
-          </div>
-          <div class="entry-item" onclick="loadEntry('apr5')">
-            <div class="entry-date">April 5, 2026</div>
-            <div class="entry-title">Week 1 check-in</div>
-            <div class="entry-preview">Started using MindNest. It's actually helping to write things down...</div>
-            <div class="entry-mood">🙂</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ====== CHAT PAGE ====== -->
-    <div id="page-chat" class="page">
-      <div class="topbar">
-        <div class="topbar-title">Messages</div>
-        <div class="topbar-actions">
-          <button class="btn btn-primary" onclick="showToast('New message started!', '✉️')">+ New Message</button>
-        </div>
-      </div>
-
-      <div class="chat-layout">
-        <div class="chat-list">
-          <div class="chat-list-header">
-            <span>Conversations</span>
-            <span style="font-size:12px;color:var(--sage);font-weight:500">3 active</span>
-          </div>
-          <div class="chat-search">
-            <input type="text" placeholder="Search messages..." />
-          </div>
-
-          <div class="chat-item active" onclick="switchChat('sneha')">
-            <div class="avatar" style="width:38px;height:38px;font-size:14px;background:linear-gradient(135deg,#C9A84C,#E8A020)">S</div>
-            <div class="chat-item-info">
-              <div class="chat-item-name">Sneha K.</div>
-              <div class="chat-item-preview">the breathing trick really works omg 🌿</div>
-            </div>
-            <div class="chat-item-meta">
-              <div class="chat-item-time">2m</div>
-              <div class="unread-dot"></div>
-            </div>
-          </div>
-
-          <div class="chat-item" onclick="switchChat('anon1')">
-            <div class="avatar" style="width:38px;height:38px;font-size:14px;background:linear-gradient(135deg,#7BAFD4,#5A8BBF)">👤</div>
-            <div class="chat-item-info">
-              <div class="chat-item-name">Anonymous Owl</div>
-              <div class="chat-item-preview">Thank you for the comfort DM 💙</div>
-            </div>
-            <div class="chat-item-meta">
-              <div class="chat-item-time">1h</div>
-              <div class="unread-dot"></div>
-            </div>
-          </div>
-
-          <div class="chat-item" onclick="switchChat('rohan')">
-            <div class="avatar" style="width:38px;height:38px;font-size:14px;background:linear-gradient(135deg,#D46B6B,#C0504D)">R</div>
-            <div class="chat-item-info">
-              <div class="chat-item-name">Rohan M.</div>
-              <div class="chat-item-preview">bro exam pe kya scene hai??</div>
-            </div>
-            <div class="chat-item-meta">
-              <div class="chat-item-time">3h</div>
-            </div>
-          </div>
-
-          <div class="chat-item" onclick="switchChat('group1')">
-            <div class="avatar" style="width:38px;height:38px;font-size:14px;background:linear-gradient(135deg,#7C9E87,#5A7D65)">📚</div>
-            <div class="chat-item-info">
-              <div class="chat-item-name">CSE Study Circle</div>
-              <div class="chat-item-preview">Ananya: anyone done unit 4?</div>
-            </div>
-            <div class="chat-item-meta">
-              <div class="chat-item-time">5h</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="chat-area">
-          <div class="chat-header">
-            <div class="avatar" style="background:linear-gradient(135deg,#C9A84C,#E8A020)">S</div>
-            <div class="chat-header-info">
-              <div class="chat-header-name">Sneha K.</div>
-              <div class="chat-header-status"><span class="online-dot"></span> Online now</div>
-            </div>
-            <button class="btn btn-ghost" style="font-size:12px">View Profile</button>
-          </div>
-
-          <div class="chat-messages" id="chatMessages">
-            <div style="text-align:center;font-size:12px;color:var(--muted);margin:8px 0">Today, 4:15 PM</div>
-
-            <div class="msg-group them">
-              <div class="avatar" style="width:30px;height:30px;font-size:12px;background:linear-gradient(135deg,#C9A84C,#E8A020)">S</div>
-              <div>
-                <div class="msg-time">4:15 PM</div>
-                <div class="msg-bubble">Hey! I saw your post on the feed. Exam season is brutal ngl 😅</div>
-              </div>
-            </div>
-
-            <div class="msg-group me">
-              <div class="avatar" style="width:30px;height:30px;font-size:12px;background:linear-gradient(135deg,#7C9E87,#5A7D65)">P</div>
-              <div>
-                <div class="msg-time">4:18 PM</div>
-                <div class="msg-bubble">Ugh yes 😩 How do you manage? You always seem so calm</div>
-              </div>
-            </div>
-
-            <div class="msg-group them">
-              <div class="avatar" style="width:30px;height:30px;font-size:12px;background:linear-gradient(135deg,#C9A84C,#E8A020)">S</div>
-              <div>
-                <div class="msg-time">4:20 PM</div>
-                <div class="msg-bubble">Haha I'm NOT calm 😂 The breathe section on MindNest actually helps a lot though. 4-7-8 technique before sleeping — game changer</div>
-              </div>
-            </div>
-
-            <div class="msg-group me">
-              <div class="avatar" style="width:30px;height:30px;font-size:12px;background:linear-gradient(135deg,#7C9E87,#5A7D65)">P</div>
-              <div>
-                <div class="msg-time">4:22 PM</div>
-                <div class="msg-bubble">omg I'll try tonight! Also your tip post got 89 likes you're literally the top supporter now 🏆</div>
-              </div>
-            </div>
-
-            <div class="msg-group them">
-              <div class="avatar" style="width:30px;height:30px;font-size:12px;background:linear-gradient(135deg,#C9A84C,#E8A020)">S</div>
-              <div>
-                <div class="msg-time">4:30 PM</div>
-                <div class="msg-bubble">the breathing trick really works omg 🌿</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="chat-input-area">
-            <textarea class="chat-input" id="chatInput" placeholder="Type a message..." rows="1" onkeydown="handleChatKey(event)"></textarea>
-            <button class="send-btn" onclick="sendMessage()">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      <!-- ====== HOME PAGE ====== -->
+      <div id="page-home" class="page active">
+        <div class="topbar">
+          <div class="topbar-title">Community Feed</div>
+          <div class="topbar-actions">
+            <button class="btn btn-ghost" onclick="openModal('postModal')">+ Share</button>
+            <button class="notif-btn" onclick="showToast('You have 3 new notifications', '🔔')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+              </svg>
+              <div class="notif-dot"></div>
             </button>
           </div>
         </div>
-      </div>
-    </div>
 
-    <!-- ====== REWARDS PAGE ====== -->
-    <div id="page-rewards" class="page">
-      <div class="topbar">
-        <div class="topbar-title">Wellness Rewards</div>
-      </div>
-
-      <div style="padding:24px 28px;max-width:1000px">
-        <div class="rewards-header">
+        <div class="feed-layout">
+          <!-- Feed -->
           <div>
-            <div class="rewards-title">Your Points Balance</div>
-            <div class="rewards-sub">Earn points by supporting others, journaling daily, and staying consistent.</div>
-          </div>
-          <div class="points-display">
-            <div class="points-big">680</div>
-            <div class="points-sub-text">Wellness Points</div>
-          </div>
-        </div>
-
-        <div class="section-title">How to Earn Points</div>
-        <div class="activity-grid">
-          <div class="activity-card">
-            <div class="activity-icon" style="background:#EBF5EE">🌅</div>
-            <div class="activity-info">
-              <div class="activity-name">Daily Mood Check-in</div>
-              <div class="activity-desc">Check in every day</div>
-            </div>
-            <div class="activity-pts">+10 pts</div>
-          </div>
-          <div class="activity-card">
-            <div class="activity-icon" style="background:#FFF4EC">✍️</div>
-            <div class="activity-info">
-              <div class="activity-name">Journal Entry</div>
-              <div class="activity-desc">Write at least 50 words</div>
-            </div>
-            <div class="activity-pts">+15 pts</div>
-          </div>
-          <div class="activity-card">
-            <div class="activity-icon" style="background:#F0EAE2">🫂</div>
-            <div class="activity-info">
-              <div class="activity-name">Validate a Vent</div>
-              <div class="activity-desc">Support someone in need</div>
-            </div>
-            <div class="activity-pts">+10 pts</div>
-          </div>
-          <div class="activity-card">
-            <div class="activity-icon" style="background:#E8F0FA">✉️</div>
-            <div class="activity-info">
-              <div class="activity-name">Send Comfort DM</div>
-              <div class="activity-desc">Reach out to a venter</div>
-            </div>
-            <div class="activity-pts">+15 pts</div>
-          </div>
-          <div class="activity-card">
-            <div class="activity-icon" style="background:#FFF0F0">🌿</div>
-            <div class="activity-info">
-              <div class="activity-name">Complete Breathing</div>
-              <div class="activity-desc">Finish a breathing session</div>
-            </div>
-            <div class="activity-pts">+20 pts</div>
-          </div>
-          <div class="activity-card">
-            <div class="activity-icon" style="background:#FFF8E1">🔥</div>
-            <div class="activity-info">
-              <div class="activity-name">7-Day Streak Bonus</div>
-              <div class="activity-desc">Stay active all week</div>
-            </div>
-            <div class="activity-pts">+100 pts</div>
-          </div>
-        </div>
-
-        <div class="section-title">Redeem Rewards</div>
-        <div class="vouchers-grid">
-          <div class="voucher-card">
-            <div class="voucher-top">
-              <div class="voucher-logo" style="background:#FFF4EC">☕</div>
-              <div>
-                <div class="voucher-brand">Café Coffee Day</div>
-                <div class="voucher-amount">₹50 off</div>
+            <!-- Mood check-in -->
+            <div class="mood-checkin">
+              <div class="mood-checkin-title">How are you feeling today, Priya? 🌤️</div>
+              <div class="mood-checkin-sub">Check in daily to earn 10 wellness points and maintain your streak.</div>
+              <div class="mood-emojis">
+                <button class="mood-btn" onclick="selectMood(this)">
+                  😄 <span class="label">Great</span>
+                </button>
+                <button class="mood-btn" onclick="selectMood(this)">
+                  🙂 <span class="label">Good</span>
+                </button>
+                <button class="mood-btn" onclick="selectMood(this)">
+                  😐 <span class="label">Okay</span>
+                </button>
+                <button class="mood-btn" onclick="selectMood(this)">
+                  😟 <span class="label">Low</span>
+                </button>
+                <button class="mood-btn" onclick="selectMood(this)">
+                  😔 <span class="label">Rough</span>
+                </button>
               </div>
             </div>
-            <div class="voucher-bottom">
-              <div class="voucher-cost">500 pts</div>
-              <button class="redeem-btn can-redeem" onclick="redeemVoucher(this, 500)">Redeem</button>
+
+            <!-- Composer -->
+            <div class="composer">
+              <div class="composer-top">
+                <div class="avatar" style="width:36px;height:36px;font-size:14px;">P</div>
+                <textarea class="composer-input"
+                  placeholder="Share something with your community — a win, a worry, a tip..." rows="2"></textarea>
+              </div>
+              <div class="composer-bottom">
+                <div class="composer-tags">
+                  <span class="tag-pill active" onclick="toggleTag(this)">#academics</span>
+                  <span class="tag-pill" onclick="toggleTag(this)">#motivation</span>
+                  <span class="tag-pill" onclick="toggleTag(this)">#selfcare</span>
+                  <span class="tag-pill" onclick="toggleTag(this)">#rant</span>
+                </div>
+                <div style="display:flex;gap:12px;align-items:center">
+                  <div class="anon-toggle" onclick="this.querySelector('.toggle').classList.toggle('on')">
+                    <div class="toggle"></div>
+                    <span>Anonymous</span>
+                  </div>
+                  <button class="btn btn-primary" onclick="submitPost()">Post</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Posts -->
+            <div id="feedPosts">
+
+              <div class="post-card">
+                <div class="post-header">
+                  <div class="post-avatar" style="background:linear-gradient(135deg,#7BAFD4,#5A8BBF)">R</div>
+                  <div class="post-user-info">
+                    <div class="post-username">Rohan M.</div>
+                    <div class="post-meta">B.Com 3rd Year · 2h ago</div>
+                  </div>
+                  <span class="post-badge badge-top">🏅 Top Helper</span>
+                </div>
+                <div class="post-content">
+                  Just finished my 4th consecutive all-nighter for exams and I genuinely don't know how much longer I
+                  can keep this up. The pressure of maintaining a 9+ CGPA while also dealing with family expectations
+                  feels absolutely crushing sometimes. Anyone else feel like they're running on fumes? 😔
+                </div>
+                <div class="post-tags">
+                  <span class="post-tag">#academics</span>
+                  <span class="post-tag">#burnout</span>
+                  <span class="post-tag">#cgpa-pressure</span>
+                </div>
+                <div class="post-actions">
+                  <button class="action-btn" onclick="toggleLike(this)">❤️ <span>24</span></button>
+                  <button class="action-btn validated" onclick="toggleValidate(this)">✅ I feel this
+                    <span>18</span></button>
+                  <button class="action-btn" onclick="showToast('Comment feature coming soon!', '💬')">💬 Comment
+                    <span>7</span></button>
+                  <button class="action-btn" onclick="showToast('+5 points for sharing support!', '⭐', 'points')">🤝
+                    Support</button>
+                </div>
+              </div>
+
+              <div class="post-card">
+                <div class="post-header">
+                  <div class="post-avatar" style="background:linear-gradient(135deg,#D46B6B,#C0504D)">👤</div>
+                  <div class="post-user-info">
+                    <div class="post-username">Anonymous Owl</div>
+                    <div class="post-meta">Engineering · 1h ago</div>
+                  </div>
+                  <span class="post-badge badge-anon">🕶️ Anonymous</span>
+                </div>
+                <div class="post-content">
+                  PSA for everyone comparing themselves to topper students on the class group: their highlight reel is
+                  not your behind-the-scenes. You don't see their breakdowns at 3am. Stop comparing. Focus on YOUR
+                  journey. 💪
+                </div>
+                <div class="post-tags">
+                  <span class="post-tag">#motivation</span>
+                  <span class="post-tag">#comparison-trap</span>
+                </div>
+                <div class="post-actions">
+                  <button class="action-btn liked" onclick="toggleLike(this)">❤️ <span>67</span></button>
+                  <button class="action-btn" onclick="toggleValidate(this)">✅ I feel this <span>42</span></button>
+                  <button class="action-btn" onclick="showToast('Comment feature coming soon!', '💬')">💬 Comment
+                    <span>15</span></button>
+                  <button class="action-btn" onclick="showToast('+5 points for sharing support!', '⭐', 'points')">🤝
+                    Support</button>
+                </div>
+              </div>
+
+              <div class="post-card">
+                <div class="post-header">
+                  <div class="post-avatar" style="background:linear-gradient(135deg,#C9A84C,#E8A020)">S</div>
+                  <div class="post-user-info">
+                    <div class="post-username">Sneha K.</div>
+                    <div class="post-meta">MBA 1st Year · 30min ago</div>
+                  </div>
+                  <span class="post-badge badge-verified">✅ Verified</span>
+                </div>
+                <div class="post-content">
+                  💡 <strong>Tip that saved my life during finals:</strong> The Pomodoro technique + a <em>no-phone
+                    box</em>. 25 min deep work, 5 min pure break (no scrolling). After 4 cycles, take 20 min. My anxiety
+                  dropped 60% in just 2 weeks. Sharing is caring! 🌿
+                </div>
+                <div class="post-tags">
+                  <span class="post-tag">#tips</span>
+                  <span class="post-tag">#selfcare</span>
+                  <span class="post-tag">#productivity</span>
+                </div>
+                <div class="post-actions">
+                  <button class="action-btn" onclick="toggleLike(this)">❤️ <span>89</span></button>
+                  <button class="action-btn" onclick="toggleValidate(this)">✅ I feel this <span>34</span></button>
+                  <button class="action-btn" onclick="showToast('Comment feature coming soon!', '💬')">💬 Comment
+                    <span>22</span></button>
+                  <button class="action-btn" onclick="showToast('+5 points for sharing support!', '⭐', 'points')">🤝
+                    Support</button>
+                </div>
+              </div>
+
             </div>
           </div>
 
-          <div class="voucher-card">
-            <div class="voucher-top">
-              <div class="voucher-logo" style="background:#E8F0FA">📚</div>
-              <div>
-                <div class="voucher-brand">Amazon Books</div>
-                <div class="voucher-amount">₹100 off</div>
+          <!-- Right sidebar -->
+          <div>
+            <!-- Stress heatmap -->
+            <div class="sidebar-widget">
+              <div class="widget-title">📊 Pressure Points This Week</div>
+              <div class="heatmap-grid">
+                <div class="heatmap-row">
+                  <span class="heatmap-label">Exams</span>
+                  <div class="heatmap-bar-bg">
+                    <div class="heatmap-fill heat-critical" style="width:85%"></div>
+                  </div>
+                  <span class="heatmap-pct">85%</span>
+                </div>
+                <div class="heatmap-row">
+                  <span class="heatmap-label">Assignments</span>
+                  <div class="heatmap-bar-bg">
+                    <div class="heatmap-fill heat-high" style="width:72%"></div>
+                  </div>
+                  <span class="heatmap-pct">72%</span>
+                </div>
+                <div class="heatmap-row">
+                  <span class="heatmap-label">Family</span>
+                  <div class="heatmap-bar-bg">
+                    <div class="heatmap-fill heat-mid" style="width:55%"></div>
+                  </div>
+                  <span class="heatmap-pct">55%</span>
+                </div>
+                <div class="heatmap-row">
+                  <span class="heatmap-label">Finances</span>
+                  <div class="heatmap-bar-bg">
+                    <div class="heatmap-fill heat-mid" style="width:48%"></div>
+                  </div>
+                  <span class="heatmap-pct">48%</span>
+                </div>
+                <div class="heatmap-row">
+                  <span class="heatmap-label">Social</span>
+                  <div class="heatmap-bar-bg">
+                    <div class="heatmap-fill heat-low" style="width:30%"></div>
+                  </div>
+                  <span class="heatmap-pct">30%</span>
+                </div>
               </div>
+              <div style="margin-top:10px;font-size:11px;color:var(--muted)">Based on community mood check-ins</div>
             </div>
-            <div class="voucher-bottom">
-              <div class="voucher-cost">1000 pts</div>
-              <button class="redeem-btn locked">Locked</button>
-            </div>
-          </div>
 
-          <div class="voucher-card">
-            <div class="voucher-top">
-              <div class="voucher-logo" style="background:#EBF5EE">🎵</div>
-              <div>
-                <div class="voucher-brand">Spotify Premium</div>
-                <div class="voucher-amount">1 Month Free</div>
+            <!-- Leaderboard -->
+            <div class="sidebar-widget">
+              <div class="widget-title">🏆 Top Supporters This Week</div>
+              <div class="leaderboard-item">
+                <span class="lb-rank gold">🥇</span>
+                <div class="avatar"
+                  style="width:28px;height:28px;font-size:11px;background:linear-gradient(135deg,#C9A84C,#E8A020)">S
+                </div>
+                <span class="lb-name">Sneha K.</span>
+                <span class="lb-pts">1,240 pts</span>
+              </div>
+              <div class="leaderboard-item">
+                <span class="lb-rank silver">🥈</span>
+                <div class="avatar"
+                  style="width:28px;height:28px;font-size:11px;background:linear-gradient(135deg,#7BAFD4,#5A8BBF)">R
+                </div>
+                <span class="lb-name">Rohan M.</span>
+                <span class="lb-pts">980 pts</span>
+              </div>
+              <div class="leaderboard-item">
+                <span class="lb-rank bronze">🥉</span>
+                <div class="avatar"
+                  style="width:28px;height:28px;font-size:11px;background:linear-gradient(135deg,#D46B6B,#C0504D)">A
+                </div>
+                <span class="lb-name">Ananya P.</span>
+                <span class="lb-pts">820 pts</span>
+              </div>
+              <div class="leaderboard-item">
+                <span class="lb-rank">4</span>
+                <div class="avatar"
+                  style="width:28px;height:28px;font-size:11px;background:linear-gradient(135deg,#7C9E87,#5A7D65)">P
+                </div>
+                <span class="lb-name">Priya S. (You)</span>
+                <span class="lb-pts">680 pts</span>
               </div>
             </div>
-            <div class="voucher-bottom">
-              <div class="voucher-cost">800 pts</div>
-              <button class="redeem-btn locked">Locked</button>
-            </div>
-          </div>
 
-          <div class="voucher-card">
-            <div class="voucher-top">
-              <div class="voucher-logo" style="background:#FFF0F0">🍕</div>
-              <div>
-                <div class="voucher-brand">Swiggy</div>
-                <div class="voucher-amount">₹75 off</div>
+            <!-- Upcoming events -->
+            <div class="sidebar-widget">
+              <div class="widget-title">📅 Community Events</div>
+              <div class="event-item">
+                <div class="event-date">
+                  <div class="event-day">14</div>
+                  <div class="event-month">Apr</div>
+                </div>
+                <div class="event-info">
+                  <div class="event-name">Group Study Session</div>
+                  <div class="event-type">Virtual · 7 PM IST</div>
+                </div>
               </div>
-            </div>
-            <div class="voucher-bottom">
-              <div class="voucher-cost">600 pts</div>
-              <button class="redeem-btn locked">Locked</button>
-            </div>
-          </div>
-
-          <div class="voucher-card">
-            <div class="voucher-top">
-              <div class="voucher-logo" style="background:#F8EBF5">🎓</div>
-              <div>
-                <div class="voucher-brand">Udemy Course</div>
-                <div class="voucher-amount">1 Free Course</div>
+              <div class="event-item">
+                <div class="event-date">
+                  <div class="event-day">17</div>
+                  <div class="event-month">Apr</div>
+                </div>
+                <div class="event-info">
+                  <div class="event-name">Mindfulness Workshop</div>
+                  <div class="event-type">Live · 5 PM IST</div>
+                </div>
               </div>
-            </div>
-            <div class="voucher-bottom">
-              <div class="voucher-cost">1500 pts</div>
-              <button class="redeem-btn locked">Locked</button>
-            </div>
-          </div>
-
-          <div class="voucher-card">
-            <div class="voucher-top">
-              <div class="voucher-logo" style="background:#E8F4EC">🎁</div>
-              <div>
-                <div class="voucher-brand">Surprise Box</div>
-                <div class="voucher-amount">Mystery Reward</div>
+              <div class="event-item">
+                <div class="event-date">
+                  <div class="event-day">20</div>
+                  <div class="event-month">Apr</div>
+                </div>
+                <div class="event-info">
+                  <div class="event-name">Exam Stress Debrief</div>
+                  <div class="event-type">Open Circle · 8 PM IST</div>
+                </div>
               </div>
-            </div>
-            <div class="voucher-bottom">
-              <div class="voucher-cost">2000 pts</div>
-              <button class="redeem-btn locked">Locked</button>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-  </div><!-- end main -->
-</div><!-- end app -->
+      <!-- ====== VENT ROOM PAGE ====== -->
+      <div id="page-vent" class="page">
+        <div class="topbar">
+          <div class="topbar-title">Vent Room</div>
+          <div class="topbar-actions">
+            <button class="btn btn-primary" onclick="openModal('ventModal')">+ Vent</button>
+          </div>
+        </div>
 
-<!-- POST MODAL -->
-<div class="modal-overlay" id="postModal" onclick="closeModal(event,'postModal')">
-  <div class="modal">
-    <div class="modal-title">Share with Community</div>
-    <div class="modal-sub">Your post helps someone feel less alone.</div>
-    <div class="form-group">
-      <label class="form-label">What's on your mind?</label>
-      <textarea class="form-input" rows="4" placeholder="Share a worry, a win, or a helpful tip..."></textarea>
-    </div>
-    <div class="form-group">
-      <label class="form-label">Category</label>
-      <select class="form-select">
-        <option>Academic Pressure</option>
-        <option>Self-Care Tips</option>
-        <option>Social Comparison</option>
-        <option>Family Expectations</option>
-        <option>Mental Health</option>
-        <option>Wins & Gratitude</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <div class="anon-toggle" onclick="this.querySelector('.toggle').classList.toggle('on')" style="gap:10px">
-        <div class="toggle"></div>
-        <div>
-          <div style="font-size:13px;font-weight:500;color:var(--charcoal)">Post Anonymously</div>
-          <div style="font-size:12px;color:var(--muted)">Your name will be hidden from everyone</div>
+        <div style="padding:24px 28px;max-width:760px">
+          <div class="vent-hero">
+            <div class="vent-hero-title">This is your safe space 🕊️</div>
+            <div class="vent-hero-sub">Let it out — no judgment here. Every vent gets at least one person who says "I
+              feel you." Anonymous posting is always on in the Vent Room.</div>
+            <div class="vent-rules">
+              <div class="vent-rule">
+                <div class="vent-rule-icon">👁️</div>
+                Anonymous by default
+              </div>
+              <div class="vent-rule">
+                <div class="vent-rule-icon">❤️</div>
+                Validate, don't advise
+              </div>
+              <div class="vent-rule">
+                <div class="vent-rule-icon">🔒</div>
+                Stays in MindNest
+              </div>
+            </div>
+          </div>
+
+          <!-- Vent cards -->
+          <div class="vent-card severity-3">
+            <div class="post-header">
+              <div class="post-avatar" style="background:#D46B6B;font-size:13px">🌑</div>
+              <div class="post-user-info">
+                <div class="post-username">Anonymous — "Tired Student"</div>
+                <div class="post-meta">45 min ago</div>
+              </div>
+            </div>
+            <div class="post-content">
+              I don't think I can handle another semester like this. Three subjects with 80% attendance rules, two
+              internals, and my parents calling every day asking about my rank. I feel invisible in my own life. Is this
+              normal? Does it get better?
+            </div>
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+              <button class="validate-btn" onclick="validateVent(this)">🫂 I feel you too · <span>14</span></button>
+              <button class="validate-btn" onclick="showToast('DM sent! You earned 15 points 💛', '✉️', 'points')">✉️
+                Send Comfort DM</button>
+              <button class="validate-btn"
+                onclick="showToast('Thanks for reporting. Our counselor will respond soon.', '✅')">🆘 Flag for
+                Counselor</button>
+            </div>
+          </div>
+
+          <div class="vent-card severity-2">
+            <div class="post-header">
+              <div class="post-avatar" style="background:#C9A84C;font-size:13px">🌙</div>
+              <div class="post-user-info">
+                <div class="post-username">Anonymous — "Midnight Overthinker"</div>
+                <div class="post-meta">2h ago</div>
+              </div>
+            </div>
+            <div class="post-content">
+              My best friend stopped talking to me after I got better marks than her. I don't know if I should feel
+              guilty or sad. I didn't even compete with her. Comparison ruins everything. 😶
+            </div>
+            <div style="display:flex;gap:10px;align-items:center">
+              <button class="validate-btn done" onclick="validateVent(this)">🫂 I feel you too ·
+                <span>29</span></button>
+              <button class="validate-btn" onclick="showToast('DM sent! You earned 15 points 💛', '✉️', 'points')">✉️
+                Send Comfort DM</button>
+            </div>
+          </div>
+
+          <div class="vent-card severity-1">
+            <div class="post-header">
+              <div class="post-avatar" style="background:#7C9E87;font-size:13px">🌱</div>
+              <div class="post-user-info">
+                <div class="post-username">Anonymous — "Trying Hard"</div>
+                <div class="post-meta">4h ago</div>
+              </div>
+            </div>
+            <div class="post-content">
+              Update: I posted here last week about my anxiety. So many people validated me and one person sent me a
+              comfort DM that literally changed my week. I'm doing slightly better. Thank you MindNest community. 🌿
+            </div>
+            <div style="display:flex;gap:10px;align-items:center">
+              <button class="validate-btn" onclick="validateVent(this)">🫂 I feel you too · <span>47</span></button>
+              <button class="validate-btn" onclick="showToast('DM sent! You earned 15 points 💛', '✉️', 'points')">✉️
+                Send Comfort DM</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="modal-actions">
-      <button class="btn btn-ghost" onclick="document.getElementById('postModal').classList.remove('open')">Cancel</button>
-      <button class="btn btn-primary" onclick="submitPostFromModal()">Post (+10 pts)</button>
+
+      <!-- ====== BREATHE PAGE ====== -->
+      <div id="page-breathe" class="page">
+        <div class="topbar">
+          <div class="topbar-title">Breathe & Reset</div>
+        </div>
+
+        <div class="breathe-center">
+          <div class="breathe-title">Take a moment for yourself</div>
+          <div class="breathe-sub">Guided breathing exercises to calm exam anxiety and stress in minutes</div>
+
+          <div class="breathe-circle-container">
+            <div class="breathe-ring"></div>
+            <div class="breathe-ring-fill" id="breatheRing"></div>
+            <div class="breathe-inner" id="breatheInner">
+              <div class="breathe-instruction" id="breatheText">Ready</div>
+              <div class="breathe-count" id="breatheCount">—</div>
+            </div>
+          </div>
+
+          <div class="breathe-controls">
+            <button class="btn btn-ghost" id="breatheBtn" onclick="startBreathe()">▶ Start</button>
+            <button class="btn btn-ghost" onclick="stopBreathe()">◼ Stop</button>
+          </div>
+
+          <div class="breathe-techniques">
+            <div class="technique-card active" onclick="selectTechnique(this,'4-7-8')">
+              <div class="technique-name">4-7-8</div>
+              <div class="technique-desc">Inhale 4s · Hold 7s · Exhale 8s</div>
+            </div>
+            <div class="technique-card" onclick="selectTechnique(this,'box')">
+              <div class="technique-name">Box Breathing</div>
+              <div class="technique-desc">4s · Hold 4s · 4s · Hold 4s</div>
+            </div>
+            <div class="technique-card" onclick="selectTechnique(this,'calm')">
+              <div class="technique-name">Quick Calm</div>
+              <div class="technique-desc">Inhale 3s · Exhale 6s</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== JOURNAL PAGE ====== -->
+      <div id="page-journal" class="page">
+        <div class="topbar">
+          <div class="topbar-title">My Journal</div>
+          <div class="topbar-actions">
+            <button class="btn btn-primary" onclick="saveEntry()">Save Entry</button>
+          </div>
+        </div>
+
+        <div class="journal-layout">
+          <div>
+            <div class="journal-editor">
+              <div class="journal-toolbar">
+                <button class="toolbar-btn" onclick="formatText('bold')"><strong>B</strong></button>
+                <button class="toolbar-btn" onclick="formatText('italic')"><em>I</em></button>
+                <button class="toolbar-btn" onclick="formatText('underline')"><u>U</u></button>
+                <div style="width:1px;background:var(--border);margin:0 4px"></div>
+                <button class="toolbar-btn">😊</button>
+                <button class="toolbar-btn">🔖</button>
+                <button class="toolbar-btn">🔒 Private</button>
+              </div>
+              <div class="journal-date-input">
+                <div class="journal-date-label">SUNDAY, APRIL 12, 2026</div>
+              </div>
+              <input class="journal-heading" type="text" placeholder="Entry title..." />
+              <textarea class="journal-textarea" id="journalText"
+                placeholder="Start writing... This is your private space. No one can see this unless you choose to share. What's on your mind today?"></textarea>
+              <div class="journal-footer">
+                <div>
+                  <span id="wordCount">0 words</span>
+                  <span style="margin:0 8px">·</span>
+                  <span>Private</span>
+                </div>
+                <div class="journal-mood-selector">
+                  <button class="journal-mood-btn sel" onclick="selectJMood(this)">😄</button>
+                  <button class="journal-mood-btn" onclick="selectJMood(this)">😐</button>
+                  <button class="journal-mood-btn" onclick="selectJMood(this)">😔</button>
+                  <button class="journal-mood-btn" onclick="selectJMood(this)">😤</button>
+                  <button class="journal-mood-btn" onclick="selectJMood(this)">😰</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Past entries sidebar -->
+          <div>
+            <div class="section-title">Past Entries</div>
+            <div class="entry-item" onclick="loadEntry('apr11')">
+              <div class="entry-date">April 11, 2026</div>
+              <div class="entry-title">Rough day but I survived</div>
+              <div class="entry-preview">Didn't do well in the mock test but talked to Ananya and felt better after...
+              </div>
+              <div class="entry-mood">😔</div>
+            </div>
+            <div class="entry-item" onclick="loadEntry('apr9')">
+              <div class="entry-date">April 9, 2026</div>
+              <div class="entry-title">Something clicked today</div>
+              <div class="entry-preview">Finally understood Dynamic Programming after 3 days. The feeling is
+                indescribable...</div>
+              <div class="entry-mood">😄</div>
+            </div>
+            <div class="entry-item" onclick="loadEntry('apr7')">
+              <div class="entry-date">April 7, 2026</div>
+              <div class="entry-title">Why do I compare myself so much</div>
+              <div class="entry-preview">Saw Riya's internship offer on LinkedIn and felt that familiar pang again. Need
+                to work on this...</div>
+              <div class="entry-mood">😟</div>
+            </div>
+            <div class="entry-item" onclick="loadEntry('apr5')">
+              <div class="entry-date">April 5, 2026</div>
+              <div class="entry-title">Week 1 check-in</div>
+              <div class="entry-preview">Started using MindNest. It's actually helping to write things down...</div>
+              <div class="entry-mood">🙂</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== CHAT PAGE ====== -->
+      <div id="page-chat" class="page">
+        <div class="topbar">
+          <div class="topbar-title">Messages</div>
+          <div class="topbar-actions">
+            <button class="btn btn-primary" onclick="showToast('New message started!', '✉️')">+ New Message</button>
+          </div>
+        </div>
+
+        <div class="chat-layout">
+          <div class="chat-list">
+            <div class="chat-list-header">
+              <span>Conversations</span>
+              <span style="font-size:12px;color:var(--sage);font-weight:500">3 active</span>
+            </div>
+            <div class="chat-search">
+              <input type="text" placeholder="Search messages..." />
+            </div>
+
+            <div class="chat-item active" onclick="switchChat('sneha')">
+              <div class="avatar"
+                style="width:38px;height:38px;font-size:14px;background:linear-gradient(135deg,#C9A84C,#E8A020)">S</div>
+              <div class="chat-item-info">
+                <div class="chat-item-name">Sneha K.</div>
+                <div class="chat-item-preview">the breathing trick really works omg 🌿</div>
+              </div>
+              <div class="chat-item-meta">
+                <div class="chat-item-time">2m</div>
+                <div class="unread-dot"></div>
+              </div>
+            </div>
+
+            <div class="chat-item" onclick="switchChat('anon1')">
+              <div class="avatar"
+                style="width:38px;height:38px;font-size:14px;background:linear-gradient(135deg,#7BAFD4,#5A8BBF)">👤
+              </div>
+              <div class="chat-item-info">
+                <div class="chat-item-name">Anonymous Owl</div>
+                <div class="chat-item-preview">Thank you for the comfort DM 💙</div>
+              </div>
+              <div class="chat-item-meta">
+                <div class="chat-item-time">1h</div>
+                <div class="unread-dot"></div>
+              </div>
+            </div>
+
+            <div class="chat-item" onclick="switchChat('rohan')">
+              <div class="avatar"
+                style="width:38px;height:38px;font-size:14px;background:linear-gradient(135deg,#D46B6B,#C0504D)">R</div>
+              <div class="chat-item-info">
+                <div class="chat-item-name">Rohan M.</div>
+                <div class="chat-item-preview">bro exam pe kya scene hai??</div>
+              </div>
+              <div class="chat-item-meta">
+                <div class="chat-item-time">3h</div>
+              </div>
+            </div>
+
+            <div class="chat-item" onclick="switchChat('group1')">
+              <div class="avatar"
+                style="width:38px;height:38px;font-size:14px;background:linear-gradient(135deg,#7C9E87,#5A7D65)">📚
+              </div>
+              <div class="chat-item-info">
+                <div class="chat-item-name">CSE Study Circle</div>
+                <div class="chat-item-preview">Ananya: anyone done unit 4?</div>
+              </div>
+              <div class="chat-item-meta">
+                <div class="chat-item-time">5h</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chat-area">
+            <div class="chat-header">
+              <div class="avatar" style="background:linear-gradient(135deg,#C9A84C,#E8A020)">S</div>
+              <div class="chat-header-info">
+                <div class="chat-header-name">Sneha K.</div>
+                <div class="chat-header-status"><span class="online-dot"></span> Online now</div>
+              </div>
+              <button class="btn btn-ghost" style="font-size:12px">View Profile</button>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+              <div style="text-align:center;font-size:12px;color:var(--muted);margin:8px 0">Today, 4:15 PM</div>
+
+              <div class="msg-group them">
+                <div class="avatar"
+                  style="width:30px;height:30px;font-size:12px;background:linear-gradient(135deg,#C9A84C,#E8A020)">S
+                </div>
+                <div>
+                  <div class="msg-time">4:15 PM</div>
+                  <div class="msg-bubble">Hey! I saw your post on the feed. Exam season is brutal ngl 😅</div>
+                </div>
+              </div>
+
+              <div class="msg-group me">
+                <div class="avatar"
+                  style="width:30px;height:30px;font-size:12px;background:linear-gradient(135deg,#7C9E87,#5A7D65)">P
+                </div>
+                <div>
+                  <div class="msg-time">4:18 PM</div>
+                  <div class="msg-bubble">Ugh yes 😩 How do you manage? You always seem so calm</div>
+                </div>
+              </div>
+
+              <div class="msg-group them">
+                <div class="avatar"
+                  style="width:30px;height:30px;font-size:12px;background:linear-gradient(135deg,#C9A84C,#E8A020)">S
+                </div>
+                <div>
+                  <div class="msg-time">4:20 PM</div>
+                  <div class="msg-bubble">Haha I'm NOT calm 😂 The breathe section on MindNest actually helps a lot
+                    though. 4-7-8 technique before sleeping — game changer</div>
+                </div>
+              </div>
+
+              <div class="msg-group me">
+                <div class="avatar"
+                  style="width:30px;height:30px;font-size:12px;background:linear-gradient(135deg,#7C9E87,#5A7D65)">P
+                </div>
+                <div>
+                  <div class="msg-time">4:22 PM</div>
+                  <div class="msg-bubble">omg I'll try tonight! Also your tip post got 89 likes you're literally the top
+                    supporter now 🏆</div>
+                </div>
+              </div>
+
+              <div class="msg-group them">
+                <div class="avatar"
+                  style="width:30px;height:30px;font-size:12px;background:linear-gradient(135deg,#C9A84C,#E8A020)">S
+                </div>
+                <div>
+                  <div class="msg-time">4:30 PM</div>
+                  <div class="msg-bubble">the breathing trick really works omg 🌿</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="chat-input-area">
+              <textarea class="chat-input" id="chatInput" placeholder="Type a message..." rows="1"
+                onkeydown="handleChatKey(event)"></textarea>
+              <button class="send-btn" onclick="sendMessage()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="22" y1="2" x2="11" y2="13" />
+                  <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====== REWARDS PAGE ====== -->
+      <div id="page-rewards" class="page">
+        <div class="topbar">
+          <div class="topbar-title">Wellness Rewards</div>
+        </div>
+
+        <div style="padding:24px 28px;max-width:1000px">
+          <div class="rewards-header">
+            <div>
+              <div class="rewards-title">Your Points Balance</div>
+              <div class="rewards-sub">Earn points by supporting others, journaling daily, and staying consistent.</div>
+            </div>
+            <div class="points-display">
+              <div class="points-big">680</div>
+              <div class="points-sub-text">Wellness Points</div>
+            </div>
+          </div>
+
+          <div class="section-title">How to Earn Points</div>
+          <div class="activity-grid">
+            <div class="activity-card">
+              <div class="activity-icon" style="background:#EBF5EE">🌅</div>
+              <div class="activity-info">
+                <div class="activity-name">Daily Mood Check-in</div>
+                <div class="activity-desc">Check in every day</div>
+              </div>
+              <div class="activity-pts">+10 pts</div>
+            </div>
+            <div class="activity-card">
+              <div class="activity-icon" style="background:#FFF4EC">✍️</div>
+              <div class="activity-info">
+                <div class="activity-name">Journal Entry</div>
+                <div class="activity-desc">Write at least 50 words</div>
+              </div>
+              <div class="activity-pts">+15 pts</div>
+            </div>
+            <div class="activity-card">
+              <div class="activity-icon" style="background:#F0EAE2">🫂</div>
+              <div class="activity-info">
+                <div class="activity-name">Validate a Vent</div>
+                <div class="activity-desc">Support someone in need</div>
+              </div>
+              <div class="activity-pts">+10 pts</div>
+            </div>
+            <div class="activity-card">
+              <div class="activity-icon" style="background:#E8F0FA">✉️</div>
+              <div class="activity-info">
+                <div class="activity-name">Send Comfort DM</div>
+                <div class="activity-desc">Reach out to a venter</div>
+              </div>
+              <div class="activity-pts">+15 pts</div>
+            </div>
+            <div class="activity-card">
+              <div class="activity-icon" style="background:#FFF0F0">🌿</div>
+              <div class="activity-info">
+                <div class="activity-name">Complete Breathing</div>
+                <div class="activity-desc">Finish a breathing session</div>
+              </div>
+              <div class="activity-pts">+20 pts</div>
+            </div>
+            <div class="activity-card">
+              <div class="activity-icon" style="background:#FFF8E1">🔥</div>
+              <div class="activity-info">
+                <div class="activity-name">7-Day Streak Bonus</div>
+                <div class="activity-desc">Stay active all week</div>
+              </div>
+              <div class="activity-pts">+100 pts</div>
+            </div>
+          </div>
+
+          <div class="section-title">Redeem Rewards</div>
+          <div class="vouchers-grid">
+            <div class="voucher-card">
+              <div class="voucher-top">
+                <div class="voucher-logo" style="background:#FFF4EC">☕</div>
+                <div>
+                  <div class="voucher-brand">Café Coffee Day</div>
+                  <div class="voucher-amount">₹50 off</div>
+                </div>
+              </div>
+              <div class="voucher-bottom">
+                <div class="voucher-cost">500 pts</div>
+                <button class="redeem-btn can-redeem" onclick="redeemVoucher(this, 500)">Redeem</button>
+              </div>
+            </div>
+
+            <div class="voucher-card">
+              <div class="voucher-top">
+                <div class="voucher-logo" style="background:#E8F0FA">📚</div>
+                <div>
+                  <div class="voucher-brand">Amazon Books</div>
+                  <div class="voucher-amount">₹100 off</div>
+                </div>
+              </div>
+              <div class="voucher-bottom">
+                <div class="voucher-cost">1000 pts</div>
+                <button class="redeem-btn locked">Locked</button>
+              </div>
+            </div>
+
+            <div class="voucher-card">
+              <div class="voucher-top">
+                <div class="voucher-logo" style="background:#EBF5EE">🎵</div>
+                <div>
+                  <div class="voucher-brand">Spotify Premium</div>
+                  <div class="voucher-amount">1 Month Free</div>
+                </div>
+              </div>
+              <div class="voucher-bottom">
+                <div class="voucher-cost">800 pts</div>
+                <button class="redeem-btn locked">Locked</button>
+              </div>
+            </div>
+
+            <div class="voucher-card">
+              <div class="voucher-top">
+                <div class="voucher-logo" style="background:#FFF0F0">🍕</div>
+                <div>
+                  <div class="voucher-brand">Swiggy</div>
+                  <div class="voucher-amount">₹75 off</div>
+                </div>
+              </div>
+              <div class="voucher-bottom">
+                <div class="voucher-cost">600 pts</div>
+                <button class="redeem-btn locked">Locked</button>
+              </div>
+            </div>
+
+            <div class="voucher-card">
+              <div class="voucher-top">
+                <div class="voucher-logo" style="background:#F8EBF5">🎓</div>
+                <div>
+                  <div class="voucher-brand">Udemy Course</div>
+                  <div class="voucher-amount">1 Free Course</div>
+                </div>
+              </div>
+              <div class="voucher-bottom">
+                <div class="voucher-cost">1500 pts</div>
+                <button class="redeem-btn locked">Locked</button>
+              </div>
+            </div>
+
+            <div class="voucher-card">
+              <div class="voucher-top">
+                <div class="voucher-logo" style="background:#E8F4EC">🎁</div>
+                <div>
+                  <div class="voucher-brand">Surprise Box</div>
+                  <div class="voucher-amount">Mystery Reward</div>
+                </div>
+              </div>
+              <div class="voucher-bottom">
+                <div class="voucher-cost">2000 pts</div>
+                <button class="redeem-btn locked">Locked</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end main -->
+  </div><!-- end app -->
+
+  <!-- POST MODAL -->
+  <div class="modal-overlay" id="postModal" onclick="closeModal(event,'postModal')">
+    <div class="modal">
+      <div class="modal-title">Share with Community</div>
+      <div class="modal-sub">Your post helps someone feel less alone.</div>
+      <div class="form-group">
+        <label class="form-label">What's on your mind?</label>
+        <textarea class="form-input" rows="4" placeholder="Share a worry, a win, or a helpful tip..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Category</label>
+        <select class="form-select">
+          <option>Academic Pressure</option>
+          <option>Self-Care Tips</option>
+          <option>Social Comparison</option>
+          <option>Family Expectations</option>
+          <option>Mental Health</option>
+          <option>Wins & Gratitude</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <div class="anon-toggle" onclick="this.querySelector('.toggle').classList.toggle('on')" style="gap:10px">
+          <div class="toggle"></div>
+          <div>
+            <div style="font-size:13px;font-weight:500;color:var(--charcoal)">Post Anonymously</div>
+            <div style="font-size:12px;color:var(--muted)">Your name will be hidden from everyone</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost"
+          onclick="document.getElementById('postModal').classList.remove('open')">Cancel</button>
+        <button class="btn btn-primary" onclick="submitPostFromModal()">Post (+10 pts)</button>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- VENT MODAL -->
-<div class="modal-overlay" id="ventModal" onclick="closeModal(event,'ventModal')">
-  <div class="modal">
-    <div class="modal-title">Let it out 🕊️</div>
-    <div class="modal-sub">This is anonymous. Breathe. Type it all out.</div>
-    <div class="form-group">
-      <label class="form-label">What's weighing on you?</label>
-      <textarea class="form-input" rows="5" placeholder="It's okay to not be okay. Write anything..."></textarea>
-    </div>
-    <div class="form-group">
-      <label class="form-label">Stress level right now?</label>
-      <select class="form-select">
-        <option>🟢 Manageable — just needed to say it</option>
-        <option>🟡 Pretty overwhelmed</option>
-        <option>🔴 Really struggling right now</option>
-      </select>
-    </div>
-    <div class="modal-actions">
-      <button class="btn btn-ghost" onclick="document.getElementById('ventModal').classList.remove('open')">Cancel</button>
-      <button class="btn btn-primary" onclick="submitVent()">Post Vent (+10 pts)</button>
+  <!-- VENT MODAL -->
+  <div class="modal-overlay" id="ventModal" onclick="closeModal(event,'ventModal')">
+    <div class="modal">
+      <div class="modal-title">Let it out 🕊️</div>
+      <div class="modal-sub">This is anonymous. Breathe. Type it all out.</div>
+      <div class="form-group">
+        <label class="form-label">What's weighing on you?</label>
+        <textarea class="form-input" rows="5" placeholder="It's okay to not be okay. Write anything..."></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Stress level right now?</label>
+        <select class="form-select">
+          <option>🟢 Manageable — just needed to say it</option>
+          <option>🟡 Pretty overwhelmed</option>
+          <option>🔴 Really struggling right now</option>
+        </select>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-ghost"
+          onclick="document.getElementById('ventModal').classList.remove('open')">Cancel</button>
+        <button class="btn btn-primary" onclick="submitVent()">Post Vent (+10 pts)</button>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- TOAST -->
-<div class="toast" id="toast">
-  <span class="toast-icon" id="toastIcon"></span>
-  <span id="toastText"></span>
-</div>
+  <!-- TOAST -->
+  <div class="toast" id="toast">
+    <span class="toast-icon" id="toastIcon"></span>
+    <span id="toastText"></span>
+  </div>
 
-<script src="app.js"></script>
+  <script src="app.js"></script>
 
 </body>
+
 </html>
