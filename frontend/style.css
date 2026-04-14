@@ -91,12 +91,13 @@
   .avatar {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--sage), var(--amber));
+    border-radius: 8px;
+    background: var(--cream);
+    border: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--charcoal);
     font-weight: 600;
     font-size: 15px;
     flex-shrink: 0;
@@ -108,9 +109,10 @@
 
   /* Streak badge */
   .streak-badge {
-    background: linear-gradient(135deg, #FF8C42, #FFB347);
-    color: white;
-    border-radius: 20px;
+    background: var(--cream);
+    color: var(--charcoal);
+    border: 1px solid var(--border);
+    border-radius: 6px;
     padding: 3px 8px;
     font-size: 11px;
     font-weight: 600;
@@ -169,10 +171,11 @@
   /* Points card */
   .points-card {
     margin: 12px;
-    background: linear-gradient(135deg, var(--sage-dark), var(--sage));
-    border-radius: 14px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 12px;
     padding: 16px;
-    color: white;
+    color: var(--charcoal);
   }
 
   .points-label { font-size: 11px; opacity: 0.8; letter-spacing: 0.5px; }
@@ -185,14 +188,14 @@
   }
 
   .points-bar-bg {
-    background: rgba(255,255,255,0.2);
+    background: var(--border);
     border-radius: 4px;
     height: 6px;
     overflow: hidden;
   }
 
   .points-bar-fill {
-    background: white;
+    background: var(--sage);
     height: 100%;
     border-radius: 4px;
     width: 68%;
@@ -306,9 +309,9 @@
 
   /* Mood check-in banner */
   .mood-checkin {
-    background: linear-gradient(135deg, #F0EAE2, #E8F4EC);
+    background: var(--warm-white);
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 12px;
     padding: 20px 24px;
     margin-bottom: 20px;
   }
@@ -481,15 +484,16 @@
 
   .post-badge {
     padding: 3px 10px;
-    border-radius: 20px;
+    border-radius: 6px;
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.3px;
+    border: 1px solid var(--border);
   }
 
-  .badge-anon { background: #F0EAE2; color: var(--amber); }
-  .badge-verified { background: #EBF5EE; color: var(--sage-dark); }
-  .badge-top { background: linear-gradient(135deg, #FFE082, #FFC107); color: #6B4C00; }
+  .badge-anon { background: var(--warm-white); color: var(--muted); }
+  .badge-verified { background: var(--sage-light); color: var(--charcoal); }
+  .badge-top { background: var(--cream); color: var(--charcoal); }
 
   .post-content {
     font-size: 14px;
@@ -653,10 +657,11 @@
 
   /* ===== VENT ROOM PAGE ===== */
   .vent-hero {
-    background: linear-gradient(135deg, #2C3E35, #3D5A48);
-    border-radius: 16px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 12px;
     padding: 28px;
-    color: white;
+    color: var(--charcoal);
     margin-bottom: 20px;
     position: relative;
     overflow: hidden;
@@ -669,7 +674,7 @@
     top: -40px;
     width: 200px;
     height: 200px;
-    background: rgba(255,255,255,0.04);
+    background: rgba(0,0,0,0.02);
     border-radius: 50%;
   }
 
@@ -740,14 +745,15 @@
 
   /* ===== REWARDS PAGE ===== */
   .rewards-header {
-    background: linear-gradient(135deg, #C9A84C, #E8C97A);
-    border-radius: 16px;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 12px;
     padding: 24px 28px;
     margin-bottom: 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: white;
+    color: var(--charcoal);
   }
 
   .rewards-title {
@@ -766,7 +772,7 @@
     font-family: 'DM Serif Display', serif;
     font-size: 48px;
     line-height: 1;
-    color: white;
+    color: var(--charcoal);
   }
 
   .points-sub-text { font-size: 13px; opacity: 0.75; margin-top: 4px; }

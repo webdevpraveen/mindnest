@@ -340,7 +340,7 @@ function sendMessage() {
   const time = now.getHours() + ':' + String(now.getMinutes()).padStart(2,'0');
 
   const msg = `<div class="msg-group me">
-    <div class="avatar" style="width:30px;height:30px;font-size:12px;background:linear-gradient(135deg,#7C9E87,#5A7D65)">P</div>
+    <div class="avatar" style="width:30px;height:30px;font-size:12px;background:var(--cream); color:var(--charcoal); border: 1px solid var(--border); font-weight:600;">P</div>
     <div>
       <div class="msg-time">${time}</div>
       <div class="msg-bubble">${text}</div>
@@ -361,7 +361,7 @@ function sendMessage() {
       'Pata nahi yaar, exam pressure is real 😮‍💨'
     ];
     const reply = `<div class="msg-group them">
-      <div class="avatar" style="width:30px;height:30px;font-size:12px;background:linear-gradient(135deg,#C9A84C,#E8A020)">S</div>
+      <div class="avatar" style="width:30px;height:30px;font-size:12px;background:var(--cream); color:var(--charcoal); border: 1px solid var(--border); font-weight:600;">S</div>
       <div>
         <div class="msg-time">${time}</div>
         <div class="msg-bubble">${replies[Math.floor(Math.random() * replies.length)]}</div>
