@@ -38,12 +38,12 @@ This project was built focusing on simplicity and quick deployment without the h
 
 ## Deployment
 
-### Vercel (Frontend)
-1. Import this repository into Vercel.
-2. The framework preset should be "Other".
-3. The `vercel.json` file will automatically configure the correct output directory (`frontend`).
+This app is optimally designed for a **1-Click unified deployment** on **Render** to eliminate all complexity. You do NOT need to set up Vercel separately anymore.
 
-### Render (Backend)
-1. Go to your Render Dashboard.
-2. Connect your GitHub repository.
-3. Render will automatically detect the `render.yaml` file and deploy the `backend/` service seamlessly.
+### Unified Deployment on Render
+1. Go to your [Render Dashboard](https://dashboard.render.com).
+2. Click "New" -> Select "Blueprint".
+3. Connect your `mindnest` GitHub repository.
+4. Render will automatically read the `render.yaml` file and deploy the full-stack application instantly!
+
+*Note: The Express Node.js server automatically serves the frontend interface, meaning you only need one single hosted service for the entire application to work.*

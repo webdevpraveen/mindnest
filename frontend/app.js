@@ -41,9 +41,7 @@ function toggleTag(el) {
 }
 
 // ===== API INTEGRATION =====
-const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-  ? 'http://localhost:3001' 
-  : 'https://mindnest-backend.onrender.com';
+const API_URL = ''; // Relative path because backend serves frontend.
 
 let userPoints = 680;
 
