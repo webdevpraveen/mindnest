@@ -1,0 +1,36 @@
+{
+  "points": 680,
+  "posts": [
+    {
+      "id": "1",
+      "name": "Rohan M.",
+      "text": "Just finished my 4th consecutive all-nighter for exams and I genuinely don't know how much longer I can keep this up. The pressure of maintaining a 9+ CGPA while also dealing with family expectations feels absolutely crushing sometimes. Anyone else feel like they're running on fumes? 😔",
+      "tags": ["academics", "burnout", "cgpa-pressure"],
+      "anonymous": false,
+      "likes": 24,
+      "validations": 18,
+      "timestamp": "2026-04-14T05:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "name": "Anonymous",
+      "text": "PSA for everyone comparing themselves to topper students on the class group: their highlight reel is not your behind-the-scenes. You don't see their breakdowns at 3am. Stop comparing. Focus on YOUR journey. 💪",
+      "tags": ["motivation", "comparison-trap"],
+      "anonymous": true,
+      "likes": 67,
+      "validations": 42,
+      "timestamp": "2026-04-14T06:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "name": "Sneha K.",
+      "text": "💡 Tip that saved my life during finals: The Pomodoro technique + a no-phone box. 25 min deep work, 5 min pure break (no scrolling). After 4 cycles, take 20 min. My anxiety dropped 60% in just 2 weeks. Sharing is caring! 🌿",
+      "tags": ["tips", "selfcare", "productivity"],
+      "anonymous": false,
+      "likes": 89,
+      "validations": 34,
+      "timestamp": "2026-04-14T06:30:00.000Z"
+    }
+  ],
+  "vents": []
+}

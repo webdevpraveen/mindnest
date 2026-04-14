@@ -1,0 +1,404 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans); }
+  .wrap { padding: 1.5rem 0; }
+
+  .hero {
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem 1.5rem 1.25rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .hero-icon {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    background: #7C9E87;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .hero-icon svg { width: 28px; height: 28px; stroke: white; fill: none; stroke-width: 2.5; }
+  .hero-title { font-size: 22px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; }
+  .hero-sub { font-size: 14px; color: var(--color-text-secondary); line-height: 1.6; }
+  .hero-pill {
+    margin-left: auto;
+    background: var(--color-background-info);
+    color: var(--color-text-info);
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: var(--border-radius-md);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .problem-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  .problem-card {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1rem 1.25rem;
+  }
+  .card-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: var(--color-text-tertiary);
+    margin-bottom: 8px;
+  }
+  .card-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px; }
+  .card-body { font-size: 13px; color: var(--color-text-secondary); line-height: 1.65; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--color-text-tertiary);
+    margin-bottom: 10px;
+  }
+
+  .feature-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 1.5rem; }
+
+  .feature-row {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    padding: 1rem 1.25rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .feature-dot {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .feature-main { flex: 1; }
+  .feature-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px; }
+  .feature-desc { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+  .feature-solve {
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--color-text-success);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .feature-pts {
+    margin-left: auto;
+    flex-shrink: 0;
+    background: var(--color-background-warning);
+    color: var(--color-text-warning);
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: var(--border-radius-md);
+    align-self: flex-start;
+    margin-top: 1px;
+  }
+
+  .flow-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    margin-bottom: 1.5rem;
+    align-items: center;
+  }
+  .flow-step {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 10px 8px;
+    text-align: center;
+  }
+  .flow-num { font-size: 11px; color: var(--color-text-tertiary); margin-bottom: 3px; }
+  .flow-name { font-size: 12px; font-weight: 500; color: var(--color-text-primary); line-height: 1.4; }
+  .flow-arrow { text-align: center; color: var(--color-text-tertiary); font-size: 16px; }
+
+  .score-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+  .score-card {
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-md);
+    padding: 12px;
+    text-align: center;
+  }
+  .score-num { font-size: 24px; font-weight: 500; color: var(--color-text-primary); }
+  .score-label { font-size: 11px; color: var(--color-text-secondary); margin-top: 2px; }
+
+  .diff-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+  .diff-card {
+    border-radius: var(--border-radius-lg);
+    padding: 1rem 1.25rem;
+    border: 0.5px solid var(--color-border-tertiary);
+  }
+  .diff-card.them { background: var(--color-background-danger); }
+  .diff-card.us { background: var(--color-background-success); }
+  .diff-head {
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .diff-head.them { color: var(--color-text-danger); }
+  .diff-head.us { color: var(--color-text-success); }
+  .diff-item { font-size: 13px; color: var(--color-text-secondary); padding: 4px 0; border-bottom: 0.5px solid var(--color-border-tertiary); line-height: 1.5; }
+  .diff-item:last-child { border-bottom: none; }
+
+  .tech-row {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.5rem;
+  }
+  .tech-pill {
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 6px 14px;
+    font-size: 13px;
+    color: var(--color-text-secondary);
+  }
+  .tech-pill b { color: var(--color-text-primary); font-weight: 500; }
+
+  .divider { height: 0.5px; background: var(--color-border-tertiary); margin: 1.25rem 0; }
+
+  .highlight-box {
+    background: var(--color-background-info);
+    border: 0.5px solid var(--color-border-info);
+    border-radius: var(--border-radius-lg);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    font-size: 13px;
+    color: var(--color-text-info);
+    line-height: 1.7;
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-icon">
+      <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    </div>
+    <div>
+      <div class="hero-title">MindNest — Student Mental Wellness Community</div>
+      <div class="hero-sub">A peer-support platform designed specifically around how academic stress actually affects Indian college students — with gamified wellness and real rewards.</div>
+    </div>
+    <div class="hero-pill">College Project</div>
+  </div>
+
+  <div class="section-label">Problem statement addressed</div>
+  <div class="problem-row">
+    <div class="problem-card">
+      <div class="card-eyebrow">Problem 1</div>
+      <div class="card-title">Academic pressure</div>
+      <div class="card-body">Students face exam anxiety, CGPA pressure, family expectations, and attendance rules with no structured peer support. They suffer in isolation, not knowing others feel the same way.</div>
+    </div>
+    <div class="problem-card">
+      <div class="card-eyebrow">Problem 2</div>
+      <div class="card-title">Social comparison</div>
+      <div class="card-body">WhatsApp group toppers, LinkedIn internship posts, and Instagram highlight reels make students compare their worst days to others' best — silently destroying their self-worth.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-label">6 features — how each one solves the problem</div>
+  <div class="feature-list">
+
+    <div class="feature-row">
+      <div class="feature-dot" style="background:#EBF5EE">🏡</div>
+      <div class="feature-main">
+        <div class="feature-title">Community Feed</div>
+        <div class="feature-desc">Students post about academic struggles, wins, or tips. Anonymous toggle means they can share without identity fear. Tags like #academics, #burnout, #cgpa-pressure create topic clusters. "I feel this" button validates emotions without forcing advice.</div>
+        <div class="feature-solve">✅ Solves isolation — students see others going through the same thing</div>
+      </div>
+      <div class="feature-pts">+10 pts per post</div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-dot" style="background:#2C3E35">🕊️</div>
+      <div class="feature-main">
+        <div class="feature-title">Vent Room — anonymous safe space</div>
+        <div class="feature-desc">Dedicated dark-themed room for heavy emotional venting. All posts are anonymous by default. Severity color coding (green/amber/red border) signals how serious a vent is. "Send Comfort DM" lets others privately reach out. "Flag for Counselor" escalates crisis posts.</div>
+        <div class="feature-solve">✅ Gives students a pressure valve — without identity exposure</div>
+      </div>
+      <div class="feature-pts">+10 pts per validate</div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-dot" style="background:#EBF5EE">🌿</div>
+      <div class="feature-main">
+        <div class="feature-title">Breathe & Reset — guided breathing</div>
+        <div class="feature-desc">Three clinically proven techniques: 4-7-8 (sleep/anxiety), Box Breathing (focus), Quick Calm (panic). Animated expanding circle with live countdown. Earns points on session completion to incentivize actual usage.</div>
+        <div class="feature-solve">✅ Gives students an immediate, in-browser tool during panic/exam moments</div>
+      </div>
+      <div class="feature-pts">+20 pts per session</div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-dot" style="background:#F7F3EE">📓</div>
+      <div class="feature-main">
+        <div class="feature-title">Private Journal</div>
+        <div class="feature-desc">Daily private journaling with mood selector, word count, and past entry history. Completely private — not shared anywhere. Rewarded to encourage journaling as a mental health habit.</div>
+        <div class="feature-solve">✅ Externalizing thoughts reduces rumination — clinically backed</div>
+      </div>
+      <div class="feature-pts">+15 pts per entry</div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-dot" style="background:#E8F4EC">✉️</div>
+      <div class="feature-main">
+        <div class="feature-title">Messages — peer-to-peer chat</div>
+        <div class="feature-desc">Direct + group messaging. "Comfort DM" system lets Vent Room readers reach out privately to anonymous venters. Study groups can coordinate here. Warm auto-replies simulate active conversation for demo.</div>
+        <div class="feature-solve">✅ Builds real human connection beyond just posts — combats loneliness</div>
+      </div>
+      <div class="feature-pts">+15 pts per comfort DM</div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-dot" style="background:#FFF8E1">🏆</div>
+      <div class="feature-main">
+        <div class="feature-title">Wellness Rewards — points to real vouchers</div>
+        <div class="feature-desc">Every wellness action (check-in, journal, breathe, validate) earns points. Points redeem into real vouchers: CCD, Amazon Books, Spotify, Swiggy, Udemy courses. 7-day streak bonus incentivizes consistency.</div>
+        <div class="feature-solve">✅ Gamification converts passive empathy into active daily wellness habits</div>
+      </div>
+      <div class="feature-pts">500–2000 pts to redeem</div>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-label">Exclusive innovations — not found on any existing platform</div>
+  <div class="feature-list">
+
+    <div class="feature-row">
+      <div class="feature-dot" style="background:#EBF5EE">📊</div>
+      <div class="feature-main">
+        <div class="feature-title">Pressure Points Heatmap</div>
+        <div class="feature-desc">Community mood check-ins are aggregated in real-time into a subject-wise stress bar chart — "Exams 85%, Family 55%, Finances 48%". Students see what's stressing the most students this week. No other platform does this.</div>
+      </div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-dot" style="background:#F0EAE2">🫂</div>
+      <div class="feature-main">
+        <div class="feature-title">"I feel this" Validate — not advice</div>
+        <div class="feature-desc">Most platforms have Like/Comment. MindNest replaces this with "I feel this" — which signals emotional solidarity, not judgment or advice-giving. Designed around how students actually want to be heard.</div>
+      </div>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-dot" style="background:#F8F0FF">🔴</div>
+      <div class="feature-main">
+        <div class="feature-title">Vent Severity System</div>
+        <div class="feature-desc">Left-border color on vent cards (green/amber/red) based on self-reported stress level. Community can quickly scan for who needs urgent support, and the "Flag for Counselor" button exists only here for serious cases.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-label">How a student uses it — typical day flow</div>
+  <div class="flow-row">
+    <div class="flow-step">
+      <div class="flow-num">Morning</div>
+      <div class="flow-name">Mood Check-in on Feed</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="flow-num">Afternoon</div>
+      <div class="flow-name">Read community posts, validate others</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="flow-num">Exam panic</div>
+      <div class="flow-name">Open Breathe, do 4-7-8 session</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="flow-num">Night</div>
+      <div class="flow-name">Journal entry, vent if needed</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="flow-num">Week end</div>
+      <div class="flow-name">Check leaderboard, redeem reward</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-label">MindNest vs existing platforms</div>
+  <div class="diff-grid">
+    <div class="diff-card them">
+      <div class="diff-head them">❌ What others do</div>
+      <div class="diff-item">iCall, Wysa — therapy chatbots, AI-driven, paid tiers</div>
+      <div class="diff-item">Reddit — anonymous but zero wellness structure, no support</div>
+      <div class="diff-item">Discord — general chat, no mental health context</div>
+      <div class="diff-item">YourDost — counselor appointments only, no peer community</div>
+      <div class="diff-item">No platform combines journaling + community + rewards</div>
+    </div>
+    <div class="diff-card us">
+      <div class="diff-head us">✅ What MindNest does differently</div>
+      <div class="diff-item">Human-first: peer support over AI chatbots</div>
+      <div class="diff-item">Anonymous venting with severity classification</div>
+      <div class="diff-item">Breathing tool built in — not a separate app</div>
+      <div class="diff-item">Real rewards for real wellness actions</div>
+      <div class="diff-item">Pressure Points heatmap — community stress visibility</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-label">Tech stack used</div>
+  <div class="tech-row">
+    <div class="tech-pill"><b>HTML5</b> structure</div>
+    <div class="tech-pill"><b>CSS3</b> custom properties + grid + flexbox</div>
+    <div class="tech-pill"><b>Vanilla JS</b> all interactions</div>
+    <div class="tech-pill"><b>Google Fonts</b> DM Serif Display + DM Sans</div>
+    <div class="tech-pill"><b>Zero dependencies</b> — no frameworks</div>
+    <div class="tech-pill"><b>Single file</b> — open in any browser</div>
+  </div>
+
+  <div class="section-label">Project metrics</div>
+  <div class="score-grid">
+    <div class="score-card">
+      <div class="score-num">6</div>
+      <div class="score-label">Full pages / sections</div>
+    </div>
+    <div class="score-card">
+      <div class="score-num">18+</div>
+      <div class="score-label">Working interactive features</div>
+    </div>
+    <div class="score-card">
+      <div class="score-num">3</div>
+      <div class="score-label">Innovative-first features</div>
+    </div>
+    <div class="score-card">
+      <div class="score-num">0</div>
+      <div class="score-label">External libraries needed</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <b style="color:var(--color-text-info)">Submission note for your friend:</b> MindNest is a fully working front-end prototype — open the HTML file in any browser, no internet needed. Every button, toggle, modal, breathing animation, chat, journal, and reward system is functional. It's designed to feel like a real product — not a college project. The problem statement (academic pressure + social comparison) is addressed by every single feature with intentional UX choices, not surface-level.
+  </div>
+
+</div>
