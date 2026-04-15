@@ -4,7 +4,7 @@
 
 ---
 
-## 🧠 What is MindNest?
+##  What is MindNest?
 
 MindNest is a peer-to-peer wellness platform designed exclusively for college students. It provides a safe, anonymous, and supportive digital space where students can share what they're going through — academic pressure, exam stress, social anxiety, family expectations — without fear of judgment.
 
@@ -12,7 +12,7 @@ Unlike generic mental health apps, MindNest is built around the **Indian college
 
 ---
 
-## 🎯 Problem Statement
+##  Problem Statement
 
 Indian college students face a silent mental health crisis:
 
@@ -25,7 +25,7 @@ There is no safe, relatable, student-first space where they can express themselv
 
 ---
 
-## 💡 How MindNest Solves This
+##  How MindNest Solves This
 
 MindNest creates a **community-driven support system** where students help each other through daily check-ins, anonymous venting, and positive reinforcement:
 
@@ -52,7 +52,7 @@ Direct, private conversations between students who connect through the community
 
 ---
 
-## 👩‍🎓 How Students Use MindNest
+##  How Students Use MindNest
 
 1. **Open the app** → Land on the Community Feed where you can see what fellow students are sharing
 2. **Check in your mood** → Select how you're feeling today (Great / Good / Okay / Low / Rough)
@@ -64,7 +64,7 @@ Direct, private conversations between students who connect through the community
 
 ---
 
-## 🏗️ Tech Stack
+##  Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -75,7 +75,7 @@ Direct, private conversations between students who connect through the community
 
 ---
 
-## 📌 Important Note
+##  Important Note
 
 This is a **Minimum Viable Product (MVP)** developed as a college project under the **L&T EduTech** program. The current version demonstrates the core concept and user flow. Future iterations may include:
 
@@ -86,12 +86,7 @@ This is a **Minimum Viable Product (MVP)** developed as a college project under 
 - Mobile app (React Native)
 - Database migration for production scale
 
----
-
-## 👥 Team
-
-Built with care by students who understand the problem firsthand.
 
 ---
 
-*"You are not alone. Your feelings are valid. MindNest is here."* 🌿
+>*"You are not alone. Your feelings are valid. MindNest is here."* 🌿
